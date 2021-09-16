@@ -1,5 +1,8 @@
-package pl.kurs.test4dt.model;
+package pl.kurs.test4dt.model.operations;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class AdditionOperatorImpl implements Operator {
     @Override
     public double calculate(double n1, double n2) {
