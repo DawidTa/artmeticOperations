@@ -1,7 +1,6 @@
-package pl.kurs.test4dt.model.operations;
+package pl.kurs.test4dt.model;
 
 import org.springframework.stereotype.Service;
-import pl.kurs.test4dt.model.operations.Operator;
 
 @Service
 public class SubstractionOperatorImpl implements Operator {

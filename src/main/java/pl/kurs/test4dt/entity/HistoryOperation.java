@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -18,7 +19,7 @@ public class HistoryOperation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private LocalDateTime createdDateTime;
     @Column(name = "user_ip")
     private String userIPAddress;
     @Column(name = "n1")
@@ -27,4 +28,5 @@ public class HistoryOperation {
     private double n2;
     @Column(name = "operator")
     private String operator;
+
 }

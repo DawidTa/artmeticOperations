@@ -1,4 +1,4 @@
-package pl.kurs.test4dt.model.operations;
+package pl.kurs.test4dt.model;
 
 import lombok.Data;
 

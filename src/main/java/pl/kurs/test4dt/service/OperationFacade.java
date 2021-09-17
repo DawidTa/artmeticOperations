@@ -1,8 +1,8 @@
 package pl.kurs.test4dt.service;
 
 import org.springframework.stereotype.Service;
-import pl.kurs.test4dt.model.operations.AritmeticModel;
-import pl.kurs.test4dt.model.operations.Operator;
+import pl.kurs.test4dt.model.AritmeticModel;
+import pl.kurs.test4dt.model.Operator;
 
 import java.util.Map;
 import java.util.Set;
