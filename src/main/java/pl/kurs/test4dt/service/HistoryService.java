@@ -10,6 +10,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Service
@@ -28,7 +29,8 @@ public class HistoryService {
         historyRepository.save(historyOperation);
     }
 
-    public HistoryOperation getRecords() {
-        return null;
+    public List<HistoryOperation> getRecords(String operator) {
+        List<HistoryOperation> byOperator = historyRepository.findByOperator(operator);
+        return byOperator;
     }
 }

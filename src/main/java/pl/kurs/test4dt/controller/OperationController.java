@@ -22,14 +22,15 @@ public class OperationController {
     HistoryService historyService;
 
     @PostMapping("/result")
-    public ResponseEntity<Double> resultOperation(@RequestBody AritmeticModel aritmeticModel) throws UnknownHostException {
+    @ResponseBody
+    public ResponseEntity<String> resultOperation(@RequestBody AritmeticModel aritmeticModel) throws UnknownHostException {
         double result = operationFacade.operationResult(aritmeticModel);
         historyService.saveRecord(aritmeticModel);
-        return new ResponseEntity<>(result, HttpStatus.CREATED);
+        return new ResponseEntity<String>(String.valueOf(result), HttpStatus.CREATED);
     }
 
-//    @GetMapping("/history")
-//    public List<HistoryOperation> historyOperations() {
-//
-//    }
+    @GetMapping("/history")
+    public List<HistoryOperation> historyOperations(@RequestParam (value = "operator") String operator) {
+        return historyService.getRecords(operator);
+    }
 }
