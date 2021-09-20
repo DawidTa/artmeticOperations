@@ -34,7 +34,6 @@ public class OperationController {
     public ResponseEntity historyOperations(@RequestParam(required = false, value = "operator") String operator,
                                                     @RequestParam(required = false, value = "dateFrom") String dateFrom,
                                                     @RequestParam(required = false, value = "dateTo") String dateTo) {
-//        return historyService.getRecords(operator, dateFrom, dateTo);
         return ResponseEntity.ok(historyService.getRecords(operator, dateFrom, dateTo));
     }
 }

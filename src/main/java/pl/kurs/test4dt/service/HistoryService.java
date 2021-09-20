@@ -74,8 +74,6 @@ public class HistoryService {
             return historyRepository.findByCreatedDateTimeLessThan(convertedDateTime);
 
         }
-
-
         return historyRepository.findAll();
     }
 }
