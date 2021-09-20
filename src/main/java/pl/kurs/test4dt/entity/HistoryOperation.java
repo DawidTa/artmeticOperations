@@ -3,11 +3,9 @@ package pl.kurs.test4dt.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +17,7 @@ public class HistoryOperation {
     @Column(name = "operation_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "created_date", columnDefinition = "timestamp")
+    @Column(name = "created_date")
     private Timestamp createdDateTime;
     @Column(name = "user_ip")
     private String userIPAddress;

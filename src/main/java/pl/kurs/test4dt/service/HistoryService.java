@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 
@@ -31,17 +32,50 @@ public class HistoryService {
         historyOperation.setN2(aritmeticModel.getN2());
         historyOperation.setOperator(aritmeticModel.getOperator());
         historyOperation.setUserIPAddress(InetAddress.getLocalHost().getHostAddress());
-        historyOperation.setCreatedDateTime(new Timestamp(System.currentTimeMillis()));
+        historyOperation.setCreatedDateTime(Timestamp.valueOf(LocalDateTime.now()));
         historyRepository.save(historyOperation);
     }
 
     public List<HistoryOperation> getRecords(String operator, String dateFrom, String dateTo) {
-        if (operator != null && dateFrom == null && dateTo == null) {
+
+        if (operator != null) {
             return historyRepository.findByOperator(operator);
-        } else if (operator == null && dateFrom != null && dateTo == null) {
+
+        } else if (dateFrom != null) {
+
             Timestamp convertedDateTime = dateTimeHelper.convertStringToDateTime(dateFrom);
-            return historyRepository.findByCreatedDateTime(convertedDateTime);
+            return historyRepository.findByCreatedDateTimeGreaterThan(convertedDateTime);
+
+        } else if (dateTo != null && dateFrom != null) {
+
+            Timestamp convertedDateTimeFrom = dateTimeHelper.convertStringToDateTime(dateFrom);
+            Timestamp convertedDateTimeTo = dateTimeHelper.convertStringToDateTime(dateTo);
+            return historyRepository.findByCreatedDateTimeBetween(convertedDateTimeFrom, convertedDateTimeTo);
+
+        } else if (dateFrom != null && operator != null) {
+
+            Timestamp convertedDateTime = dateTimeHelper.convertStringToDateTime(dateFrom);
+            return historyRepository.findByCreatedDateTimeGreaterThanAndOperator(convertedDateTime, operator);
+
+        } else if (dateTo != null && operator != null) {
+
+            Timestamp convertedDateTime = dateTimeHelper.convertStringToDateTime(dateTo);
+            return historyRepository.findByCreatedDateTimeLessThanAndOperator(convertedDateTime, operator);
+
+        } else if (dateFrom != null && dateTo != null && operator != null) {
+
+            Timestamp convertedDateTimeFrom = dateTimeHelper.convertStringToDateTime(dateFrom);
+            Timestamp convertedDateTimeTo = dateTimeHelper.convertStringToDateTime(dateTo);
+            return historyRepository.findByCreatedDateTimeBetweenAndOperator(convertedDateTimeFrom, convertedDateTimeTo, operator);
+
+        } else if (dateTo != null) {
+
+            Timestamp convertedDateTime = dateTimeHelper.convertStringToDateTime(dateTo);
+            return historyRepository.findByCreatedDateTimeLessThan(convertedDateTime);
+
         }
+
+
         return historyRepository.findAll();
     }
 }

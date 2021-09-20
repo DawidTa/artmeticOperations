@@ -14,8 +14,15 @@ import java.util.List;
 public interface HistoryRepository extends JpaRepository<HistoryOperation, Integer> {
     List<HistoryOperation> findByOperator(String operator);
 
-    List<HistoryOperation> findByCreatedDateTime(Timestamp createdDateTime);
+    List<HistoryOperation> findByCreatedDateTimeGreaterThan(Timestamp createdDateTime);
 
-//    @Query(value = "SELECT h FROM history_operation h where created_date = ?1", nativeQuery = true)
-//    List<HistoryOperation> findByCreatedDateTime(LocalDateTime createdDateTime);
+    List<HistoryOperation> findByCreatedDateTimeBetween(Timestamp createdDateTimeFrom, Timestamp createdDateTimeTo);
+
+    List<HistoryOperation> findByCreatedDateTimeGreaterThanAndOperator(Timestamp createdDateTime, String operator);
+
+    List<HistoryOperation> findByCreatedDateTimeLessThanAndOperator(Timestamp createdDateTime, String operator);
+
+    List<HistoryOperation> findByCreatedDateTimeBetweenAndOperator(Timestamp createdDateTimeFrom, Timestamp createdDateTimeTo ,String operator);
+
+    List<HistoryOperation> findByCreatedDateTimeLessThan(Timestamp createdDateTime);
 }
