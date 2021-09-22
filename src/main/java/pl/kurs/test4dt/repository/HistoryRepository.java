@@ -22,7 +22,7 @@ public interface HistoryRepository extends JpaRepository<HistoryOperation, Integ
 
     List<HistoryOperation> findByCreatedDateTimeLessThanAndOperator(Timestamp createdDateTime, String operator);
 
-    List<HistoryOperation> findByCreatedDateTimeBetweenAndOperator(Timestamp createdDateTimeFrom, Timestamp createdDateTimeTo ,String operator);
+    List<HistoryOperation> findByCreatedDateTimeBetweenAndOperator(Timestamp createdDateTimeFrom, Timestamp createdDateTimeTo, String operator);
 
     List<HistoryOperation> findByCreatedDateTimeLessThan(Timestamp createdDateTime);
 }
