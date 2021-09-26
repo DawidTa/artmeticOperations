@@ -41,13 +41,16 @@ public class HistoryService {
     @Transactional
     public List<HistoryOperation> getRecords(String operator, String dateFrom, String dateTo) {
         String className = HistoryOperation.class.getCanonicalName();
-        String hql = "from " + className + " where 1=1";
+        //String hql = "from " + className + " where 1=1";
+        StringBuilder hql = new StringBuilder("from " + className);
 
         Session session = hibernateHelper.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query query = session.createQuery(hql);
+
 
         if (operator != null) {
+            hql.append(" where operator = :operator");
+            Query query = session.createQuery(hql.toString());
             query.setParameter("operator", operator);
             return query.list();
         }
@@ -57,6 +60,7 @@ public class HistoryService {
         if (dateTo != null) {
 
         }
+        Query query = session.createQuery(hql.toString());
         return query.list();
     }
 
