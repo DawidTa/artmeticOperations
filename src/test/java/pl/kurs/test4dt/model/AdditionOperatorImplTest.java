@@ -21,6 +21,6 @@ public class AdditionOperatorImplTest {
 
         double result = additionOperator.calculate(n1, n2);
 
-        Assert.assertEquals(8.0, result,0);
+        Assert.assertEquals(8.0, result, 0);
     }
 }

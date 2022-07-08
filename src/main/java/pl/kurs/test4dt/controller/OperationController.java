@@ -1,7 +1,5 @@
 package pl.kurs.test4dt.controller;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +22,6 @@ public class OperationController {
     HistoryService historyService;
 
     @PostMapping("/result")
-    @ResponseBody
     public ResponseEntity resultOperation(@RequestBody @Valid AritmeticModel aritmeticModel) throws UnknownHostException {
         double result = operationFacade.operationResult(aritmeticModel);
         historyService.saveRecord(aritmeticModel);

@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class DivisionOperatorImplTest {
 
     private DivisionOperatorImpl divisionOperator;
@@ -22,6 +20,6 @@ public class DivisionOperatorImplTest {
 
         double result = divisionOperator.calculate(n1, n2);
 
-        Assert.assertEquals(2.0, result,0);
+        Assert.assertEquals(2.0, result, 0);
     }
 }

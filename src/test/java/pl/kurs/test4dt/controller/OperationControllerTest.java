@@ -12,11 +12,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import pl.kurs.test4dt.entity.HistoryOperation;
 import pl.kurs.test4dt.model.AritmeticModel;
 import pl.kurs.test4dt.service.HistoryService;
 
-import static io.restassured.module.mockmvc.RestAssuredMockMvc.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -52,8 +50,8 @@ public class OperationControllerTest {
         String requestJson = objectWriter.writeValueAsString(aritmeticModel);
 
         mockMvc.perform(post("/operation/result")
-                .contentType(APPLICATION_JSON_UTF8)
-                .content(requestJson))
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .content(requestJson))
                 .andExpect(status().isCreated());
 
     }
@@ -63,9 +61,9 @@ public class OperationControllerTest {
     public void historyOperations() throws Exception {
 
         mockMvc.perform(get("/operation/history")
-        .param("operator", "*")
-        .param("dateFrom" , "2021-09-26 15:55:25")
-        .param("dateTo", "2021-09-26 15:55:25"))
+                        .param("operator", "*")
+                        .param("dateFrom", "2021-09-26 15:55:25")
+                        .param("dateTo", "2021-09-26 15:55:25"))
                 .andExpect(status().isOk());
     }
 }

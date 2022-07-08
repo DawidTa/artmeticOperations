@@ -12,6 +12,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = OperatorExistValidation.class)
 public @interface OperatorExist {
     String message() default "Invalid operator";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }
