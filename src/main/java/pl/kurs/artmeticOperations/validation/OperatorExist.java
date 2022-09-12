@@ -1,4 +1,4 @@
-package pl.kurs.test4dt.validation;
+package pl.kurs.artmeticOperations.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

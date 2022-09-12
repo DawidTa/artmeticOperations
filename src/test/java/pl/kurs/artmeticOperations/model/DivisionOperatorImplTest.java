@@ -1,4 +1,4 @@
-package pl.kurs.test4dt.model;
+package pl.kurs.artmeticOperations.model;
 
 import org.junit.Assert;
 import org.junit.Before;

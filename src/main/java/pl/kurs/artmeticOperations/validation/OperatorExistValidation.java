@@ -1,7 +1,7 @@
-package pl.kurs.test4dt.validation;
+package pl.kurs.artmeticOperations.validation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import pl.kurs.test4dt.service.OperationFacade;
+import pl.kurs.artmeticOperations.service.OperationFacade;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

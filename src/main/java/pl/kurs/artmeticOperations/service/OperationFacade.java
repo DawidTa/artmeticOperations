@@ -1,8 +1,8 @@
-package pl.kurs.test4dt.service;
+package pl.kurs.artmeticOperations.service;
 
 import org.springframework.stereotype.Service;
-import pl.kurs.test4dt.model.AritmeticModel;
-import pl.kurs.test4dt.model.Operator;
+import pl.kurs.artmeticOperations.model.ArithmeticModel;
+import pl.kurs.artmeticOperations.model.Operator;
 
 import java.util.List;
 import java.util.Map;
@@ -19,8 +19,8 @@ public class OperationFacade {
         this.operators = operatorSet.stream().collect(Collectors.toMap(Operator::code, Function.identity()));
     }
 
-    public double operationResult(AritmeticModel aritmeticModel) {
-        return operators.get(aritmeticModel.getOperator()).calculate(aritmeticModel.getN1(), aritmeticModel.getN2());
+    public double operationResult(ArithmeticModel arithmeticModel) {
+        return operators.get(arithmeticModel.getOperator()).calculate(arithmeticModel.getN1(), arithmeticModel.getN2());
     }
 
     public List<String> getCodes() {

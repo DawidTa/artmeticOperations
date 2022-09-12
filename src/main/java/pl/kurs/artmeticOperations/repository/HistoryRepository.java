@@ -1,8 +1,8 @@
-package pl.kurs.test4dt.repository;
+package pl.kurs.artmeticOperations.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.kurs.test4dt.entity.HistoryOperation;
+import pl.kurs.artmeticOperations.entity.HistoryOperation;
 
 import java.sql.Timestamp;
 import java.util.List;

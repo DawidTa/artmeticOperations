@@ -1,14 +1,14 @@
-package pl.kurs.test4dt.model;
+package pl.kurs.artmeticOperations.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.kurs.test4dt.validation.OperatorExist;
+import pl.kurs.artmeticOperations.validation.OperatorExist;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AritmeticModel {
+public class ArithmeticModel {
     private double n1;
     private double n2;
     @OperatorExist

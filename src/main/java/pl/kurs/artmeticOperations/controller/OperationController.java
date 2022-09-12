@@ -1,12 +1,12 @@
-package pl.kurs.test4dt.controller;
+package pl.kurs.artmeticOperations.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.kurs.test4dt.model.AritmeticModel;
-import pl.kurs.test4dt.service.HistoryService;
-import pl.kurs.test4dt.service.OperationFacade;
+import pl.kurs.artmeticOperations.model.ArithmeticModel;
+import pl.kurs.artmeticOperations.service.HistoryService;
+import pl.kurs.artmeticOperations.service.OperationFacade;
 
 import javax.validation.Valid;
 import java.net.UnknownHostException;
@@ -22,9 +22,9 @@ public class OperationController {
     HistoryService historyService;
 
     @PostMapping("/result")
-    public ResponseEntity resultOperation(@RequestBody @Valid AritmeticModel aritmeticModel) throws UnknownHostException {
-        double result = operationFacade.operationResult(aritmeticModel);
-        historyService.saveRecord(aritmeticModel);
+    public ResponseEntity resultOperation(@RequestBody @Valid ArithmeticModel arithmeticModel) throws UnknownHostException {
+        double result = operationFacade.operationResult(arithmeticModel);
+        historyService.saveRecord(arithmeticModel);
         return new ResponseEntity(Map.of("result", String.valueOf(result)), HttpStatus.CREATED);
     }
 

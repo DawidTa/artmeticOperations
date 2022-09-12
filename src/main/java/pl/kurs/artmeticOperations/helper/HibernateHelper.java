@@ -1,10 +1,10 @@
-package pl.kurs.test4dt.helper;
+package pl.kurs.artmeticOperations.helper;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Service;
-import pl.kurs.test4dt.entity.HistoryOperation;
+import pl.kurs.artmeticOperations.entity.HistoryOperation;
 
 @Service
 public class HibernateHelper {

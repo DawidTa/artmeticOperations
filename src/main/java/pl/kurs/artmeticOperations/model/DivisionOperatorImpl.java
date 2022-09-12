@@ -1,4 +1,4 @@
-package pl.kurs.test4dt.model;
+package pl.kurs.artmeticOperations.model;
 
 import org.springframework.stereotype.Service;
 

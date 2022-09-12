@@ -1,4 +1,4 @@
-package pl.kurs.test4dt.entity;
+package pl.kurs.artmeticOperations.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

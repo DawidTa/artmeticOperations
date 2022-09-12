@@ -1,13 +1,13 @@
-package pl.kurs.test4dt.service;
+package pl.kurs.artmeticOperations.service;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.kurs.test4dt.entity.HistoryOperation;
-import pl.kurs.test4dt.helper.HibernateHelper;
-import pl.kurs.test4dt.model.AritmeticModel;
-import pl.kurs.test4dt.repository.HistoryRepository;
+import pl.kurs.artmeticOperations.entity.HistoryOperation;
+import pl.kurs.artmeticOperations.helper.HibernateHelper;
+import pl.kurs.artmeticOperations.model.ArithmeticModel;
+import pl.kurs.artmeticOperations.repository.HistoryRepository;
 
 import javax.transaction.Transactional;
 import java.net.InetAddress;
@@ -25,11 +25,11 @@ public class HistoryService {
     @Autowired
     HibernateHelper hibernateHelper;
 
-    public void saveRecord(AritmeticModel aritmeticModel) throws UnknownHostException {
+    public void saveRecord(ArithmeticModel arithmeticModel) throws UnknownHostException {
         HistoryOperation historyOperation = new HistoryOperation();
-        historyOperation.setN1(aritmeticModel.getN1());
-        historyOperation.setN2(aritmeticModel.getN2());
-        historyOperation.setOperator(aritmeticModel.getOperator());
+        historyOperation.setN1(arithmeticModel.getN1());
+        historyOperation.setN2(arithmeticModel.getN2());
+        historyOperation.setOperator(arithmeticModel.getOperator());
         historyOperation.setUserIPAddress(InetAddress.getLocalHost().getHostAddress());
         historyOperation.setCreatedDateTime(Timestamp.valueOf(LocalDateTime.now()));
         historyRepository.save(historyOperation);
